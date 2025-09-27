@@ -47,7 +47,7 @@
   </div>
 
   <div class="mt-4">
-    <a href="#" class="btn btn-dark btn-sm disabled">Kelola Profil (Settings)</a>
+    
     <a href="{{ route('admin.orders.index') }}" class="btn btn-outline-dark btn-sm">Kelola Orders</a>
     <a href="{{ route('admin.catalogues.index') }}" class="btn btn-outline-dark btn-sm">Kelola Catalogue</a>
 
