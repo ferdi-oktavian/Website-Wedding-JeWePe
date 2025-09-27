@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CatalogueController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Site\CatalogueController as PublicCatalogueController;
 // public
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/orders/create',  [OrderController::class, 'create'])->name('orders.create');
@@ -29,3 +30,17 @@ Route::prefix('admin')->name('admin.')->middleware('adminauth')->group(function 
     Route::patch('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
     
 });
+
+
+// detail paket (informasi saja)
+Route::get('/catalogues/{catalogue}/detail', [PublicCatalogueController::class, 'detail'])
+     ->name('catalogues.detail');
+
+
+Route::get('/catalogues', [PublicCatalogueController::class, 'index'])
+     ->name('catalogues.index');
+
+
+     Route::get('/catalogues', [PublicCatalogueController::class, 'index'])->name('catalogues.index');
+     Route::get('/catalogues/{catalogue}/detail', [PublicCatalogueController::class, 'detail'])->name('catalogues.detail');
+     
